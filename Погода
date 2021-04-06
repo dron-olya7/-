@@ -1,21 +1,14 @@
-
-
-
-import java.io.IOException;
-import java.net.BindException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javafx.scene.input.InputMethodTextRun;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class ParserEkb {
+public class pogoda{
 
     private static Document getPage() throws IOException {
         String url = "http://www.nepogoda.ru/russia/ekaterinburg/";
@@ -37,9 +30,7 @@ public class ParserEkb {
         int iterationCount = 4;
         if (index == 0) {
             Element valueLn = values.get(0);
-          /*  boolean isMorning = valueLn.text().contains("Утро");
-            if (isMorning) {
-                iterationCount = 3;*/
+
             switch(valueLn.text().split(" ")[0]){
                 case ("День"):
                     iterationCount = 3;
@@ -81,3 +72,4 @@ public class ParserEkb {
     }
 
 }
+
